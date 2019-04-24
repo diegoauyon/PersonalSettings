@@ -5,6 +5,12 @@
 #Second Parameter: steps number
 #Example: change_backlight inc 2
 
+# Run with sudo
+# USERNAME ALL=(root) NOPASSWD: /usr/local/bin/change_backlight
+# Keybind to gksu -- bash -c '/usr/local/bin/change_backlight dec 1'
+
+# https://askubuntu.com/questions/821919/how-do-i-add-sudo-commands-to-a-keyboard-shortcut
+
 if [ "$1" == "" ]; then
     exit 1
 fi
@@ -27,7 +33,6 @@ else
 	exit 1
 fi
 
-echo $new_value
 echo $new_value > /sys/class/backlight/acpi_video0/brightness
 
 
